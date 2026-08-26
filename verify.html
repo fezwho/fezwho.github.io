@@ -3,23 +3,29 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Credential Verification | Faizan Ahmad</title>
+  <title>Faizan Ahmad · Credentials & Verification</title>
   
-  <!-- Inter Font -->
+  <!-- Matching Fonts from main site -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300&family=Epilogue:wght@300;400;500;600&family=DM+Mono:wght@300;400;500&display=swap"
+    rel="stylesheet"
+  />
 
   <style>
     :root {
-      --bg: #0b0f19;
-      --card-bg: rgba(26, 34, 52, 0.6);
-      --card-border: rgba(255, 255, 255, 0.08);
-      --primary: #3b82f6;
-      --primary-accent: #1a365d;
-      --text: #f3f4f6;
-      --text-muted: #9ca3af;
-      --accent-green: #10b981;
+      --bg: #0a0b0d;
+      --card-bg: #121418;
+      --card-hover: #171a20;
+      --border: rgba(255, 255, 255, 0.07);
+      --border-hover: rgba(255, 255, 255, 0.16);
+      --text: #e5e7eb;
+      --muted: #8c929e;
+      --accent: #3b82f6;
+      --font-serif: 'Fraunces', serif;
+      --font-sans: 'Epilogue', sans-serif;
+      --font-mono: 'DM Mono', monospace;
     }
 
     * {
@@ -29,150 +35,144 @@
     }
 
     body {
-      font-family: 'Inter', sans-serif;
+      font-family: var(--font-sans);
       background-color: var(--bg);
       color: var(--text);
       line-height: 1.6;
-      padding: 2rem 1rem;
+      padding: 3.5rem 1.5rem;
       min-height: 100vh;
       display: flex;
       justify-content: center;
+      -webkit-font-smoothing: antialiased;
     }
 
     .container {
-      max-width: 850px;
+      max-width: 720px;
       width: 100%;
     }
 
-    /* Header Styling */
+    /* Minimalist Header */
     header {
-      text-align: center;
-      margin-bottom: 2.5rem;
-      padding-bottom: 1.5rem;
-      border-bottom: 1px solid var(--card-border);
-    }
-
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: rgba(16, 185, 129, 0.1);
-      color: var(--accent-green);
-      border: 1px solid rgba(16, 185, 129, 0.2);
-      padding: 0.35rem 0.85rem;
-      border-radius: 9999px;
-      font-size: 0.85rem;
-      font-weight: 500;
-      margin-bottom: 1rem;
-    }
-
-    .badge-dot {
-      width: 8px;
-      height: 8px;
-      background-color: var(--accent-green);
-      border-radius: 50%;
+      margin-bottom: 3rem;
     }
 
     h1 {
-      font-size: 2.2rem;
-      font-weight: 700;
+      font-family: var(--font-serif);
+      font-size: 2.25rem;
+      font-weight: 400;
       letter-spacing: -0.02em;
-      margin-bottom: 0.5rem;
-    }
-
-    .subtitle {
-      color: var(--text-muted);
-      font-size: 1rem;
-    }
-
-    /* Section Styling */
-    .section-title {
-      font-size: 1.25rem;
-      font-weight: 600;
-      margin: 2rem 0 1rem 0;
-      color: var(--primary);
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
-      gap: 1rem;
-    }
-
-    /* Card Styling */
-    .card {
-      background: var(--card-bg);
-      border: 1px solid var(--card-border);
-      border-radius: 12px;
-      padding: 1.25rem;
-      backdrop-filter: blur(12px);
-      transition: all 0.2s ease-in-out;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .card:hover {
-      border-color: rgba(59, 130, 246, 0.4);
-      transform: translateY(-2px);
-    }
-
-    .card-header {
-      margin-bottom: 0.75rem;
-    }
-
-    .card-title {
-      font-size: 1.05rem;
-      font-weight: 600;
-      color: var(--text);
+      color: #ffffff;
       margin-bottom: 0.25rem;
     }
 
-    .card-issuer {
-      font-size: 0.85rem;
-      color: var(--text-muted);
+    .subtitle {
+      font-family: var(--font-mono);
+      font-size: 0.875rem;
+      color: var(--muted);
+      letter-spacing: -0.01em;
     }
 
-    .card-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-      color: var(--primary);
+    /* Section Headings */
+    .section-title {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      margin: 2.5rem 0 1.25rem 0;
+    }
+
+    /* Card List (Minimal Vertical Layout) */
+    .list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.1rem 1.25rem;
+      transition: all 0.2s ease;
       text-decoration: none;
-      font-size: 0.9rem;
-      font-weight: 500;
-      margin-top: 0.75rem;
-      width: fit-content;
+      color: inherit;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
     }
 
-    .card-link:hover {
-      text-decoration: underline;
+    .card:hover {
+      background: var(--card-hover);
+      border-color: var(--border-hover);
+      transform: translateY(-1px);
+    }
+
+    .card-info {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card-title {
+      font-size: 0.975rem;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 0.2rem;
+    }
+
+    .card-issuer {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .card-arrow {
+      font-family: var(--font-mono);
+      font-size: 0.9rem;
+      color: var(--muted);
+      transition: color 0.2s ease, transform 0.2s ease;
+    }
+
+    .card:hover .card-arrow {
+      color: #ffffff;
+      transform: translateX(3px);
     }
 
     /* Footer */
     footer {
-      text-align: center;
-      margin-top: 3rem;
+      margin-top: 4rem;
       padding-top: 1.5rem;
-      border-top: 1px solid var(--card-border);
-      color: var(--text-muted);
-      font-size: 0.85rem;
+      border-top: 1px solid var(--border);
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--muted);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
     }
 
     footer a {
-      color: var(--primary);
+      color: var(--text);
       text-decoration: none;
+      transition: color 0.2s ease;
     }
 
-    @media (max-width: 480px) {
-      .grid {
-        grid-template-columns: 1fr;
+    footer a:hover {
+      color: var(--accent);
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 2rem 1rem;
       }
       h1 {
-        font-size: 1.75rem;
+        font-size: 1.85rem;
+      }
+      .card {
+        padding: 1rem;
       }
     }
   </style>
@@ -180,166 +180,125 @@
 <body>
 
   <div class="container">
+    
     <!-- Header -->
     <header>
-      <div class="badge">
-        <span class="badge-dot"></span>
-        Official Verification Portal
-      </div>
       <h1>Faizan Ahmad</h1>
-      <p class="subtitle">Curriculum Vitae, Academic & Professional Credentials</p>
+      <p class="subtitle">Credentials & Technical Verifications</p>
     </header>
 
-    <!-- Section 1: Domain & European Prep -->
-    <div class="section-title">
-      Targeted Domain & Language Credentials
-    </div>
-    <div class="grid">
+    <!-- Section 1: Domain & Language -->
+    <div class="section-title">Domain & Language Credentials</div>
+    <div class="list">
       
-      <div class="card">
-        <div class="card-header">
-          <div class="card-title">Italian Language Proficiency (Level A1 - CEFR)</div>
+      <a href="https://drive.google.com/file/d/1FHNmZWx6e9dmAtusTBCRhm87wJ-KqupF/view?usp=sharing" target="_blank" class="card">
+        <div class="card-info">
+          <div class="card-title">Italian Language Proficiency (Level A1 · CEFR)</div>
           <div class="card-issuer">European Union / Europass</div>
         </div>
-        <!-- Replace certificate link below with your hosted PDF link -->
-        <a href="https://drive.google.com/file/d/1FHNmZWx6e9dmAtusTBCRhm87wJ-KqupF/view?usp=sharing" target="_blank" class="card-link">
-          View Verified Certificate &rarr;
-        </a>
-      </div>
+        <span class="card-arrow">&rarr;</span>
+      </a>
 
-      <div class="card">
-        <div class="card-header">
-          <div class="card-title">Smart Cities – Management of Smart Urban Infrastructures</div>
-          <div class="card-issuer">EPFL (École Polytechnique Fédérale de Lausanne) via Coursera</div>
+      <a href="https://www.coursera.org/account/accomplishments/verify/B08G3A3J433U" target="_blank" class="card">
+        <div class="card-info">
+          <div class="card-title">Smart Cities: Management of Smart Urban Infrastructures</div>
+          <div class="card-issuer">EPFL (École Polytechnique Fédérale de Lausanne)</div>
         </div>
-        <a href="https://www.coursera.org/account/accomplishments/verify/B08G3A3J433U" target="_blank" class="card-link">
-          Verify on Coursera &rarr;
-        </a>
-      </div>
+        <span class="card-arrow">&rarr;</span>
+      </a>
 
-      <div class="card">
-        <div class="card-header">
+      <a href="https://www.coursera.org/account/accomplishments/verify/BPBNPI6UZXBM" target="_blank" class="card">
+        <div class="card-info">
           <div class="card-title">Starting & Managing a Sustainable Hotel or Tourism Business</div>
-          <div class="card-issuer">ESSEC Business School via Coursera</div>
+          <div class="card-issuer">ESSEC Business School</div>
         </div>
-        <a href="https://www.coursera.org/account/accomplishments/verify/B08G3A3J433U" target="_blank" class="card-link">
-          Verify on Coursera &rarr;
-        </a>
-      </div>
+        <span class="card-arrow">&rarr;</span>
+      </a>
 
     </div>
 
     <!-- Section 2: Technical Certifications -->
-    <div class="section-title">
-      Technical Certifications & Specializations
-    </div>
-    <div class="grid">
+    <div class="section-title">Technical Certifications</div>
+    <div class="list">
 
-      <div class="card">
-        <div class="card-header">
+      <a href="https://www.educative.io/verify-certificate/Y61I8GGXKR" target="_blank" class="card">
+        <div class="card-info">
           <div class="card-title">MCP Fundamentals for Building AI Agents</div>
           <div class="card-issuer">Educative.io</div>
         </div>
-        <a href="https://www.educative.io/verify-certificate/Y61I8GGXKR" target="_blank" class="card-link">
-          Verify Credential &rarr;
-        </a>
-      </div>
+        <span class="card-arrow">&rarr;</span>
+      </a>
 
-      <div class="card">
-        <div class="card-header">
+      <a href="https://verify.skilljar.com/c/f2syi4q24qpc" target="_blank" class="card">
+        <div class="card-info">
           <div class="card-title">Claude Code in Action</div>
           <div class="card-issuer">Anthropic</div>
         </div>
-        <a href="https://verify.skilljar.com/c/f2syi4q24qpc" target="_blank" class="card-link">
-          Verify Skilljar Credential &rarr;
-        </a>
-      </div>
+        <span class="card-arrow">&rarr;</span>
+      </a>
 
-      <div class="card">
-        <div class="card-header">
+      <a href="https://www.coursera.org/account/accomplishments/verify/5GL3HD41OB8S" target="_blank" class="card">
+        <div class="card-info">
           <div class="card-title">Agentic AI with LangChain and LangGraph</div>
-          <div class="card-issuer">IBM via Coursera</div>
+          <div class="card-issuer">IBM</div>
         </div>
-        <a href="https://www.coursera.org/account/accomplishments/verify/5GL3HD41OB8S" target="_blank" class="card-link">
-          Verify on Coursera &rarr;
-        </a>
-      </div>
+        <span class="card-arrow">&rarr;</span>
+      </a>
 
-      <div class="card">
-        <div class="card-header">
-          <div class="card-title">Introduction to LangChain - Python</div>
+      <a href="https://academy.langchain.com/certificates/othkej8q30" target="_blank" class="card">
+        <div class="card-info">
+          <div class="card-title">Introduction to LangChain (Python)</div>
           <div class="card-issuer">LangChain Academy</div>
         </div>
-        <a href="https://academy.langchain.com/certificates/othkej8q30" target="_blank" class="card-link">
-          Verify Certificate &rarr;
-        </a>
-      </div>
+        <span class="card-arrow">&rarr;</span>
+      </a>
 
-      <div class="card">
-        <div class="card-header">
+      <a href="https://coursera.org/share/c4f69aff91b916c082952b1be4be3429" target="_blank" class="card">
+        <div class="card-info">
           <div class="card-title">Machine Learning with Python</div>
-          <div class="card-issuer">IBM via Coursera</div>
+          <div class="card-issuer">IBM</div>
         </div>
-        <a href="https://coursera.org/share/c4f69aff91b916c082952b1be4be3429" target="_blank" class="card-link">
-          Verify on Coursera &rarr;
-        </a>
-      </div>
+        <span class="card-arrow">&rarr;</span>
+      </a>
 
-      <div class="card">
-        <div class="card-header">
+      <a href="https://www.coursera.org/account/accomplishments/verify/7FT68LAA8J9J" target="_blank" class="card">
+        <div class="card-info">
           <div class="card-title">Introduction to Back-End Development</div>
-          <div class="card-issuer">Meta via Coursera</div>
+          <div class="card-issuer">Meta</div>
         </div>
-        <a href="https://www.coursera.org/account/accomplishments/verify/7FT68LAA8J9J" target="_blank" class="card-link">
-          Verify on Coursera &rarr;
-        </a>
-      </div>
+        <span class="card-arrow">&rarr;</span>
+      </a>
 
     </div>
 
-    <!-- Section 3: Live Products & Projects -->
-    <div class="section-title">
-      Live Deployments & Project Repositories
-    </div>
-    <div class="grid">
+    <!-- Section 3: Projects & Work -->
+    <div class="section-title">Systems & Deployments</div>
+    <div class="list">
 
-      <div class="card">
-        <div class="card-header">
+      <a href="https://dukaaniai.netlify.app/" target="_blank" class="card">
+        <div class="card-info">
           <div class="card-title">Dukaani.ai</div>
-          <div class="card-issuer">Predictive POS & Retail Intelligence Platform</div>
+          <div class="card-issuer">Commercial POS & Retail Intelligence Platform</div>
         </div>
-        <a href="https://dukaaniai.netlify.app/" target="_blank" class="card-link">
-          Visit Platform Demo &rarr;
-        </a>
-      </div>
+        <span class="card-arrow">&rarr;</span>
+      </a>
 
-      <div class="card">
-        <div class="card-header">
-          <div class="card-title">AugAI Engineering Track</div>
-          <div class="card-issuer">Enterprise AI Initiatives & Agent Workflows</div>
+      <a href="https://github.com/fezwho" target="_blank" class="card">
+        <div class="card-info">
+          <div class="card-title">GitHub Repositories</div>
+          <div class="card-issuer">github.com/fezwho</div>
         </div>
-        <a href="https://www.linkedin.com/company/augai/" target="_blank" class="card-link">
-          Company Profile &rarr;
-        </a>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <div class="card-title">GitHub Code Repositories</div>
-          <div class="card-issuer">Open-Source Codebases & Architecture Proofs</div>
-        </div>
-        <a href="https://github.com/fezwho" target="_blank" class="card-link">
-          Explore @fezwho on GitHub &rarr;
-        </a>
-      </div>
+        <span class="card-arrow">&rarr;</span>
+      </a>
 
     </div>
 
     <!-- Footer -->
     <footer>
-      <p>Direct inquiries: <a href="mailto:reach.fezan@gmail.com">reach.fezan@gmail.com</a></p>
-      <p style="margin-top: 0.35rem;">Portfolio: <a href="https://fezwho.me" target="_blank">fezwho.me</a> | LinkedIn: <a href="https://www.linkedin.com/in/fezwho" target="_blank">in/fezwho</a></p>
+      <span>reach.fezan@gmail.com</span>
+      <span><a href="https://fezwho.me">fezwho.me</a> · <a href="https://www.linkedin.com/in/fezwho">LinkedIn</a></span>
     </footer>
+
   </div>
 
 </body>
